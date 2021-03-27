@@ -101,8 +101,129 @@
 //		printf("%d\n", i);
 //	}
 //	return 0;
-//}#include<stdio.h>
+//打印1000--2000年的闰年
+#include<stdio.h>
+
+int is_leap_year(int y)
+{
+	if (y % 4 == 0 && y % 100 != 0 || y % 400 == 0)
+		return 1;
+	else
+		return 0;
+}
+
 int main()
 {
+	int year = 0;
+	for (year = 1000; year <= 2000; year++)
+	{
+		if (is_leap_year(year) == 1)
+			printf("%d\n", year);
+	}
+
+	return 0;
+}
+
+//从12345678910中找到7
+//普通方法
+#include<stdio.h>
+
+int main()
+{
+	int arr[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+	int k = 11;
+	int left = 0;
+	int sz = sizeof(arr) / sizeof(arr[0]);
+	int right = sz - 1;
+	while (left<=right)
+	{
+		int mid = (left + right) / 2;
+		if (mid < k)
+		{
+			left = mid + 1;
+		}
+		else if (mid>k)
+		{
+			right = mid - 1;
+		}
+		else
+		{
+			printf("找到了，下标是%d\n", mid);
+			break;
+		}
+	}
+	if (left > right)
+		printf("找不到\n");
+	return 0;
+}
+
+
+
+//函数法
+#include<stdio.h>
+
+//int binary_search(int arr1[], int a)//这里的arr传过来的是数组的首元素地址
+
+int binary_search(int arr[], int a, int sz)
+{
+	//int sz = 9;
+	int left = 0;
+	int right = sz - 1;
+	while (left <= right)
+	{
+		int mid = (left + right) / 2;
+		if (arr[mid] < a)
+		{
+			left = mid + 1;
+		}
+		else if (arr[mid]>a)
+		{
+			right = mid - 1;
+		}
+		else
+		{
+			return mid;
+			break;
+		}
+	}
+	if (left > right)
+		return -1;
+}
+
+int main()
+{
+	int arr[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+	int k = 7;
+	int sz = sizeof(arr) / sizeof(arr[0]);
+	int ret = binary_search(arr, k, sz);
+	if (ret == -1)
+	{
+		printf("找不到\n");
+	}
+	else
+	{
+		printf("找到了，它的下标是%d\n", ret);
+	}
+
+	return 0;
+}
+#include<stdio.h>
+
+void Add(int* p)
+{
+	(*p)++;
+}
+
+int main()
+{
+	int num = 0;
+	Add(&num);
+	printf("%d\n", num);
+	Add(&num);
+	printf("%d\n", num);
+	Add(&num);
+	printf("%d\n", num);
+	Add(&num);
+	printf("%d\n", num);
 	return 0;
 }
