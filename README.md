@@ -227,3 +227,130 @@ int main()
 	printf("%d\n", num);
 	return 0;
 }
+//#include<stdio.h>
+//
+//int main()
+//{
+//	printf("%d", printf("%d", printf("%d", 43)));
+//	//printf()的返回值是打印字符的个数。
+//
+//	return 0;
+//}
+
+////函数递归（栈溢出）
+//#include<stdio.h>
+//
+//int main()
+//{
+//	printf("hehe\n");
+//		main();
+//	return 0;
+//}
+
+//递归例题
+//将1234 打印为1 2 3 4
+//
+//
+//
+//#include<stdio.h>
+//
+//void print(int x)
+//{
+//	if (x > 9)
+//	{
+//		print(x / 10);
+//	}
+//	//这里不能加else，否则只有最高位数字进来
+//		printf("%d ", x%10);
+//}
+//int main()
+//{
+//	unsigned int num = 0;
+//	scanf_s("%d", &num);
+//	print(num);
+//	return 0;
+//}
+
+
+////用函数计算字符长度（创建临时变量的方法）
+//#include <stdio.h>
+//
+//int my_strlen(char* str)
+//{
+//	int count = 0;
+//	while (*str != '\0')
+//	{
+//		str++;
+//		count++;
+//	}
+//	return count;
+//}
+//
+//
+//
+//int main()
+//{
+//	char arr[] = "zxcvcbb";
+//	int len = my_strlen(arr);
+//		printf("len = %d\n", len);
+//	return 0;
+//}
+
+
+////用递归的办法求字符长度（不用创建临时变量）
+//
+//#include <stdio.h>
+//
+//int my_strlen(char *str)
+//{
+//	if ((*str) != '\0')
+//	{
+//		return (1 + my_strlen(str + 1));
+//	}
+//	else
+//		return 0;
+//}
+//
+//int main()
+//{
+//	char arr[] = "zcjfshudigrhugrehgrhgushgr";
+//	int len = my_strlen(arr);
+//	printf("字符串的长度为 %d\n", len);
+//	return 0;
+//}
+
+//求n 的阶乘
+//
+//#include <stdio.h>
+//
+//int Fac1(int a)
+//{
+//	if (a <= 1)
+//		return 1;
+//	else
+//		return a*(Fac1(a - 1));
+//}
+//int Fac2(int n)
+//{
+//	int i = 0;
+//	int ret = 1;
+//	for (i = 1; i <= n; i++)
+//	{
+//		ret *= i;
+//	}
+//	return ret;
+//}
+//
+//int main()
+//{
+//	int n = 0;
+//	int ret = 0;
+//	int ret2 = 0;
+//	scanf_s("%d", &n);
+//	ret = Fac1(n);
+//	printf("%d\n", ret);
+//	ret2 = Fac2(n);
+//	printf("%d\n", ret2);
+//	return 0;
+//}
++
