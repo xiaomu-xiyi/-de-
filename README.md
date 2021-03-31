@@ -353,4 +353,72 @@ int main()
 //	printf("%d\n", ret2);
 //	return 0;
 //}
-+
+#define _CRT_SECURE_NO_WARNING 1
+
+#include <stdio.h>
+
+#include <string.h>
+
+//int Add(int x, int y)
+//{
+//	int z = x + y;
+//	return z;
+//}
+//
+//int main()
+//{
+//	int num1 = 10;
+//	int num2 = 20;
+//	int a = 1;
+//	int b = 2;
+//	int sum = 0;
+//
+//	sum = Add(a, b);
+//	printf("%d\n", sum);
+//	return 0;
+//
+//}
+//
+//
+//
+//#include<stdio.h>
+//
+//int main()
+//{
+//	int arr[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 };
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	int i = 0;
+//	for (i = 0; i < sz; i++)
+//	{
+//		printf("&arr[] = %p\n", &arr[i]);
+//	}
+//	return 0;
+//}
+//
+//#include <stdio.h>
+//
+//int main()
+//{
+//	int arr[3][4] = { 1, 2.3, 4, 5 };
+//	printf("%d", arr);
+//	return 0;
+//}
+
+
+#include <stdio.h>
+
+int main()
+{
+	int arr[4][4] = { 1, 2, 3, 4, 5, 6, 7, 8 };
+	int i = 0;
+	for (i = 0; i < 4; i++)
+	{
+		int j = 0;
+		for (j = 0; j < 4; j++)
+		{
+			printf("%d ", arr[i][j]);
+		}
+		printf("\n");
+	}
+	return 0;
+}
