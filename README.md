@@ -461,3 +461,161 @@ int main()
 	}
 	return 0;
 }
+//测试三子棋游戏
+#include "game.h"
+
+void menu()
+{
+	printf("**************************\n");
+	printf("****1. play    0. exit****\n");
+	printf("**************************\n");
+}
+
+//整个游戏的规则
+void game()
+{
+	//用数组来表示棋盘
+	int board[ROW][COL] = {0};
+	//初始化棋盘
+	initboard(board, ROW, COL);//初始化函数有一点问题
+	//打印棋盘
+	DisplayBoard(board, ROW, COL);
+	while (1)
+	{
+		//玩家下棋
+		PlayerMove(board, ROW, COL);
+		DisplayBoard(board, ROW, COL);
+	}
+
+
+}
+
+void test()
+{
+	int input = 0;
+	do
+	{
+		menu();
+		printf("请选择:> ");
+		scanf_s("%d", &input);
+		switch (input)
+		{
+		case 1:
+			game();
+			break;
+		case 2:
+			printf("退出游戏\n");
+			break;
+		default:
+			printf("输入错误，请重新输入!\n");
+			break;
+		}
+	} 	while (input);
+}
+
+int main()
+{
+	test();
+	return 0;
+}
+#define ROW 3
+#define COL 3
+#include <stdio.h>
+
+void initboard(char board[ROW][COL], int row, int col);
+void DisplayBoard(char board[ROW][COL], int row, int col);
+void PlayerMove(char board[ROW][COL], int row, int col);
+
+#include "game.h"
+
+void initboard(char board[ROW][COL], int row, int col)
+{
+	int i = 0;
+	int j = 0;
+	for (i = 0; i < row; i++)
+	{
+		for (j = 0; j < col; j++)
+		{
+			board[i][j] = "   ";
+		}
+	}
+}
+
+//打印棋盘的笨办法
+//
+//void DisplayBoard(char board[ROW][COL], int row, int col)
+//{
+//	int i = 0;
+//	for (i = 0; i < row; i++)
+//	{
+//		printf(" %c | %c | %c \n", board[i][0], board[i][1], board[i][2]);
+//		if (i < row - 1)
+//		{
+//			printf("---|---|---\n");
+//		}
+//	}
+//}
+
+//打印棋盘的优化办法
+
+void DisplayBoard(char board[ROW][COL], int row, int col)
+{
+	int i = 0;
+	for (i = 0; i < row; i++)
+	{
+		//打印数组
+		int j = 0;
+		for (j = 0; j < col; j++)
+		{
+			printf(" %c ", board[i][j]);
+			if (j < col - 1)
+			{
+				printf("|");
+			}
+		}
+		printf("\n");
+		if (i < row - 1)
+		{
+			//打印分割线
+			for (j = 0; j < col; j++)
+			{
+				printf("---");
+				if (j < col - 1)
+				{
+					printf("|");
+				}
+			}
+			printf("\n");
+		}
+	}
+}
+
+//下棋步骤的实现
+
+void PlayerMove(char board[ROW][COL], int row, int col)
+{
+	//先让玩家走
+	int x = 0;
+	int y = 0;
+	printf("玩家先走:>\n");
+	while(1)
+	{
+		printf("请输入坐标:>");
+		scanf_s("%d%d", &x, &y);
+		//判断坐标合法性
+		if (x >= 1 && x <= row  && y >= 1 && y <= col)
+		{
+			if (board[x - 1][y - 1] == '0')
+			{
+				board[x - 1][y - 1] = '*';
+				break;
+			}
+			else
+				printf("该坐标已经被占用了呢亲！");
+		}
+		else
+		{
+			printf("坐标有问题呢,亲\n");
+		}
+	}
+}
